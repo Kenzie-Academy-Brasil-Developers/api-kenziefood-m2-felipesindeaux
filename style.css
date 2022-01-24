@@ -1,4 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Poppins:wght@600;700;800;900&display=swap');
 
+:root{
+
+    /*Essas cores deverão ser utilizadas para compor as principais seções, onde essas cores irão ser norteadoras para fixar as cores da identidade visual da marca.*/
+    --color-primary: #FF2253;
+    --color-primary-50: #FFE9EE;
+    --color-secondary: #4ACA94;
+    --color-secondary-50: #E4F7EF;
+
+    /*Essas cores deverão ser utilizadas em elementos de botões e spans que represetem categorias de produtos ou serviços oferecidos pela marca.*/
+    --color-product-1: #EEF6FF;
+    --color-product-2: #FFF7F4;
+    --color-product-3: #FFE4EA;
+    --color-product-4: #F3EEF5;
+
+    /*Essas cores deverão ser utilizadas em elementos como botões, textos e background’s. Dessa forma a aplicação irá obter de uma hierarquia visual por meio das variações entre as tonalidades.*/
+    --color-grey-4: #212529;
+    --color-grey-3: #868E96;
+    --color-grey-2: #E9ECEF;
+    --color-grey-1: #F8F9FA;
+
+}
 
 
 
