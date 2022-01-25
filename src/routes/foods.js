@@ -8,6 +8,12 @@ class FoodRoutes {
         return data
     }
 
+    static async getItemById(id){
+        let response = await fetch(`${this.ulrAPI}/product/${id}`)
+        let data     = await response.json()
+        return data
+    }
+
 }
 
 export {FoodRoutes}
