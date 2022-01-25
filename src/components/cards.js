@@ -7,14 +7,14 @@ class Cards {
         for (let i = 0; i < 7; i++){
 
             //Criando os elementos
-            const li          = document.createElement('li')
-            const img         = document.createElement('img')
+            const li           = document.createElement('li')
+            const img          = document.createElement('img')
             const divCategoria = document.createElement('div')
-            const h1          = document.createElement('h1')
-            const desc        = document.createElement('p')
-            const div         = document.createElement('div')
-            const preco       = document.createElement('span')
-            const carrinhoImg = document.createElement('img')
+            const h1           = document.createElement('h1')
+            const desc         = document.createElement('p')
+            const div          = document.createElement('div')
+            const preco        = document.createElement('span')
+            const carrinhoImg  = document.createElement('img')
 
             //Adicionando classes
             li.classList.add('vitrine__card')
