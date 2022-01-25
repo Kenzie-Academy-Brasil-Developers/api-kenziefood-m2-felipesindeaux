@@ -25,6 +25,12 @@ body{
     font-family: 'Poppins', sans-serif;
 }
 
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 /*============Vitrine============*/
 
 .vitrine__botoes{
@@ -141,6 +147,7 @@ header{
 
 .carrinho__top{
     display: flex;
+    height: 50px;
     align-items: center;
     background-color: var(--color-primary);
     color: var(--color-grey-1);
@@ -186,12 +193,19 @@ header{
     outline: 1.5px solid #212529;
 }
 
-@media (min-width: 400px) {
+@media (min-width: 768px) {
 
 }
 
-@media (min-width: 900px) {
-  
+@media (min-width: 1024px) {
+    
+    .container{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: flex-start;
+    }
+
   /*============Header============*/
     header{
         display: flex;
