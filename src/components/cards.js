@@ -6,7 +6,7 @@ class Cards {
         
         produtos.forEach(produto => {
             
-            const {id, nome, preco, categoria, descricao, imagem} = produto
+            const {nome, preco, categoria, descricao, imagem} = produto
 
             //Criando os elementos
             const li           = document.createElement('li')

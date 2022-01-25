@@ -4,10 +4,9 @@ import { Cards } from "../components/cards.js"
 
 class FoodController {
     
-    static saveProducts(){
+    static async saveProducts(){
         
-        FoodRoutes.get().then((response) => JSON.parse(response)).then((data) => {
-            console.log(data)
+        await FoodRoutes.get().then((data) => {
             data.forEach(produto => {
                 db.foods.push(produto)
             })
@@ -15,9 +14,9 @@ class FoodController {
         console.log(db.foods)
     }
 
-    static montarCards(){
+    static async montarCards(){
 
-            Cards.criarCards(db)
+            await Cards.criarCards(db.foods)
             
     }
 
