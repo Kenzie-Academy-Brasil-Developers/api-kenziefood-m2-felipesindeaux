@@ -20,6 +20,7 @@ class Cards {
 
             //Adicionando classes
             li.classList.add('vitrine__card')
+            li.setAttribute('data-id', id)
             div.classList.add('vitrine__flex')
             carrinhoImg.classList.add('vitrine__flex__img')
             divCategoria.classList.add('vitrine__categoria')
