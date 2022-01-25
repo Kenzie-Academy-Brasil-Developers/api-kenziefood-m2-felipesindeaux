@@ -6,9 +6,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kenzie Food</title>
+    <link rel="stylesheet" href="./public/reset.css">
     <link rel="stylesheet" href="public/style.css">
     <link rel="shortcut icon" href="./src/assets/images/logo.png" type="image/x-icon">
 </head>
+
 <body>
     <header>
         <figure class="logo">
@@ -24,29 +26,33 @@
         </div>
     </header>
   
-    <main class="vitrine">
-        <div class="vitrine__botoes">
-            <button class="vitrine__botao" id="botao--todos">Todos</button>
-            <button class="vitrine__botao" id="botao--panificadora"><img src="src/assets/images/Icon_bread.png" alt="">Panificadora</button>
-            <button class="vitrine__botao" id="botao--frutas"><img src="src/assets/images/Icon_fruits.png" alt="">Frutas</button>
-            <button class="vitrine__botao" id="botao--bebidas"><img src="src/assets/images/Icon_vinho.png" alt="">Bebidas</button>            
-        </div>
-        <ul class="vitrine__cards"></ul>
+    <main class="container">
+        <section class="vitrine">
+            <div class="vitrine__botoes">
+                <button class="vitrine__botao" id="botao--todos">Todos</button>
+                <button class="vitrine__botao" id="botao--panificadora"><img src="src/images/Icon_bread.png"
+                        alt="">Panificadora</button>
+                <button class="vitrine__botao" id="botao--frutas"><img src="src/images/Icon_fruits.png"
+                        alt="">Frutas</button>
+                <button class="vitrine__botao" id="botao--bebidas"><img src="src/images/Icon_vinho.png"
+                        alt="">Bebidas</button>
+            </div>
+            <ul class="vitrine__cards"></ul>
+        </section>
+      
+        <aside class="carrinho">
+            <div class="carrinho__top">
+                <img src="src/images/Icon_carrinho.png" alt="Ícone do carrinho">
+                <h2>Carrinho</h2>
+            </div>
+            <div class="carrinho__bottom">
+                <img src="src/images/shopping-bag.png" alt="Ícone de uma bolsa vazia">
+                <h2>Ops!</h2>
+                <p>Por enquanto não temos produtos no carrinho</p>
+            </div>
+        </aside>
     </main>
-  
-    <aside class="carrinho">
-        <div class="carrinho__top">
-            <img src="src/assets/images/Icon_carrinho.png" alt="Ícone do carrinho">
-            <h2>Carrinho</h2>
-        </div>
-
-        <div class="carrinho__bottom">
-            <img src="src/assets/images/shopping-bag.png" alt="Ícone de uma bolsa vazia">
-            <h2>Ops!</h2>
-            <p>Por enquanto não temos produtos no carrinho</p>
-        </div>
-    </aside>
-    <script type="module" src="src/app.js"></script>
+    <script type="module" src="app.js"></script>
 </body>
 
 </html>

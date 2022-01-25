@@ -19,14 +19,123 @@
     --color-grey-3: #868E96;
     --color-grey-2: #E9ECEF;
     --color-grey-1: #F8F9FA;
-
 }
 
 body{
     font-family: 'Poppins', sans-serif;
 }
 
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
+/*============Vitrine============*/
+
+.vitrine__botoes{
+    width: 511px;
+    height: 40px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 15px;
+    box-sizing: border-box;
+} 
+
+.vitrine__botao{
+    height: 40px;
+    border-radius: 30px;
+    padding: 15px;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 17px;
+    letter-spacing: 0em;
+    text-align: center;
+    color: var(--color-grey-4);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    border: transparent;
+    box-sizing: border-box;
+    border-radius: 30px;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+    margin: 0px 22px 0px 0px;
+}
+
+#botao--todos{
+    background-color: var(--color-grey-1);
+}
+
+#botao--panificadora{
+    background-color: var(--color-product-2);
+    width: 148px;
+}
+
+#botao--frutas{
+    background-color: var(--color-product-3);
+    width: 107px;
+}
+
+/*============Header============*/
+header{
+    width: 100%;
+    margin-bottom: 15px;
+}
+.logo{
+    width: 123px;
+    height: 46px;
+    margin: 15px;
+}
+.flex{
+    display: flex;
+    justify-content: center;
+}
+.pesquisar:focus-within{
+    border: solid 1.5px var(--color-grey-4);
+    box-sizing: border-box;
+}
+.pesquisar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--color-grey-1);
+    width: 284px;
+    height: 50px;
+    margin: 0px 10px 0px 10px;
+    border-radius: 33px;
+}
+.pesquisar input{
+    background-color: var(--color-grey-1);
+    padding: 15px;
+    margin-left: 15px;
+    border: none;
+}
+.pesquisar input:focus{
+    outline: none;
+}
+.pesquisar figure{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--color-primary-50);
+    width: 42px;
+    height: 42px;
+    margin: 0px;
+    margin-right: 8px;
+    border-radius: 22px;
+    cursor: pointer;
+}
+.pesquisar img{
+    width: 13px;
+    height: 17px;
+}
 /*============Carrinho============*/
 .carrinho{
     display: flex;
@@ -38,6 +147,7 @@ body{
 
 .carrinho__top{
     display: flex;
+    height: 50px;
     align-items: center;
     background-color: var(--color-primary);
     color: var(--color-grey-1);
@@ -74,11 +184,39 @@ body{
     height: 56px;
 }
 
+#botao--bebidas{
+    background-color: var(--color-product-4);
+    width: 118px;
+}
 
-@media (min-width: 400px) {
+.vitrine__botao:hover{
+    outline: 1.5px solid #212529;
+}
+
+@media (min-width: 768px) {
 
 }
 
-@media (min-width: 900px) {
+@media (min-width: 1024px) {
     
+    .container{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: flex-start;
+    }
+
+  /*============Header============*/
+    header{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 40px;
+    }
+    .logo{
+        margin: 15px 15px 15px 100px;
+    }
+    .flex{
+        margin: 15px 100px 15px 15px;
+    }
 }
