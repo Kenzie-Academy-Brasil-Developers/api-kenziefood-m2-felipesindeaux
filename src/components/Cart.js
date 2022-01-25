@@ -1,9 +1,13 @@
-class Carrinho{
-    static criarCarrinho(produtos){
+class Cart{
+    static criarCart(produtos){
 
         const carrinho     = document.querySelector(".carrinho__bottom")
         carrinho.innerHTML = ""
 
+        produtos.forEach(produto => {
+
+            const {id, nome, preco, categoria, imagem} = produto
+            
             //Criando os elementos
             const li           = document.createElement('li')
             const img          = document.createElement('img')
@@ -17,12 +21,13 @@ class Carrinho{
             li.classList.add('carrinho__card')
             div.classList.add('carrinho__flex')
             divCategoria.classList.add('carrinho__categoria')
+            lixoImg.classList.add("carrinho__excluir")
 
             //Adicionando conteúdo
-            img.setAttribute('src', produtos.imagem)
-            divCategoria.innerText = produtos.categoria
-            h1.innerText           = produtos.nome
-            spanPreco.innerText    = produtos.preco
+            img.setAttribute('src', imagem)
+            divCategoria.innerText = categoria
+            h1.innerText           = nome
+            spanPreco.innerText    = preco
             lixoImg.setAttribute('src', 'src/assets/images/Icon_lixeira.png')
 
             //Colocando dentro do html
@@ -33,8 +38,9 @@ class Carrinho{
             div.appendChild(divCategoria)
             div.appendChild(spanPreco)
             li.appendChild(lixoImg)
-            
+        })
+  
     }
 }
 
-export{Carrinho}
+export{Cart}
