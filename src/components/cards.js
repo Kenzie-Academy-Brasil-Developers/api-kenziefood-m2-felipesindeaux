@@ -3,8 +3,10 @@ class Cards {
         
         const ul = document.querySelector('.vitrine__cards')
         ul.innerHTML = ''
-
-        for (let i = 0; i < 7; i++){
+        
+        produtos.forEach(produto => {
+            
+            const {id, nome, preco, categoria, descricao, imagem} = produto
 
             //Criando os elementos
             const li           = document.createElement('li')
@@ -13,7 +15,7 @@ class Cards {
             const h1           = document.createElement('h1')
             const desc         = document.createElement('p')
             const div          = document.createElement('div')
-            const preco        = document.createElement('span')
+            const spanPreco        = document.createElement('span')
             const carrinhoImg  = document.createElement('img')
 
             //Adicionando classes
@@ -22,11 +24,11 @@ class Cards {
             divCategoria.classList.add('vitrine__categoria')
 
             //Adicionando conteúdo
-            img.setAttribute('src', 'src/assets/images/Icon_fruits.png')
-            divCategoria.innerText = 'Panificadora'
-            h1.innerText = 'Nome do produto'
-            desc.innerText = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.'
-            preco.innerText = 'R$ 49,90'
+            img.setAttribute('src', imagem)
+            divCategoria.innerText = categoria
+            h1.innerText = nome
+            desc.innerText = descricao
+            spanPreco.innerText = preco
             carrinhoImg.setAttribute('src', 'src/assets/images/Icon_carrinho_verde.png')
 
             //Colocando dentro do html
@@ -36,10 +38,11 @@ class Cards {
             li.appendChild(h1)
             li.appendChild(desc)
             li.appendChild(div)
-            div.appendChild(preco)
+            div.appendChild(spanPreco)
             div.appendChild(carrinhoImg)
-
-        }
+        
+        })
+        
     }
 }
 
