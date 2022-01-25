@@ -175,8 +175,14 @@ header{
     color: var(--color-grey-3);
 }
 
+.carrinho__bottom h2{
+    margin: 23px 0px 23px 0px;
+}
+
 .carrinho__bottom p{
     font-weight: 400;
+    width: 220px;
+    font-size: 12px;
 }
 
 .carrinho__bottom img{
