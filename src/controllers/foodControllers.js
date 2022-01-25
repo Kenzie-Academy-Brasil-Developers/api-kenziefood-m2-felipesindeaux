@@ -11,7 +11,6 @@ class FoodController {
                 db.foods.push(produto)
             })
         })
-        console.log(db.foods)
     }
 
     static async montarCards(){
