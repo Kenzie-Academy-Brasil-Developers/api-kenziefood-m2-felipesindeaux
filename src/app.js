@@ -1,6 +1,8 @@
-import {Cards} from "./components/cards.js"
+import { FoodController } from "./controllers/foodControllers.js"
+import { Cards } from "./components/cards.js"
+import { FoodRoutes } from "./routes/foods.js"
 
-const ulVitrine = document.querySelector('.vitrine__cards')
-Cards.criarCards()
+FoodRoutes.get().then((data) => Cards.criarCards(data))
 
-export {ulVitrine}
+// FoodController.saveProducts()
+// FoodController.montarCards()
