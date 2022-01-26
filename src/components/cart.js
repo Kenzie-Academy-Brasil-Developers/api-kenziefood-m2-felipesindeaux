@@ -11,7 +11,8 @@ class Cart{
         db.carrinho.push(produtoFiltrado)
         Cart.atualizarCart(db.carrinho)
         Cart.criarQuantidadePreco()
-
+        Cart.atualizarQuantidade()
+        Cart.atualizarTotal(db.carrinho)
     }
 
     static removendoCart(idProduto){
@@ -23,11 +24,14 @@ class Cart{
         const index = db.carrinho.indexOf(produtoFiltrado)
         db.carrinho.splice(index, 1)
         this.atualizarCart(db.carrinho)
+        Cart.atualizarQuantidade()
+        Cart.atualizarTotal(db.carrinho)        
     }
     
     static criarQuantidadePreco(){
 
         if (!document.querySelector(".carrinho__quantidadeTotal") ){
+            //Criando os elementos
             const aside                     = document.querySelector(".carrinho")
             const carrinhoFooter            = document.createElement('div')
             const divQuantidade             = document.createElement('div')
@@ -37,34 +41,52 @@ class Cart{
             const spanQuantidade            = document.createElement('span')
             const spanPreco                 = document.createElement('span')
 
-
+            //Adicionando classes
             carrinhoFooter.classList.add('carrinho__footer')
             divQuantidade.classList.add('carrinho__quantidade')
             divTotal.classList.add('carrinho__total')
             spanQuantidadeTotal.classList.add('carrinho__quantidadeTotal')
             spanPrecoTotal.classList.add('carrinho__PrecoTotal')
             
-            spanQuantidade.innerText         = ('Quantidade')
-            spanPreco.innerText              = ('Total')
-            spanQuantidadeTotal.innerHTML   = " 0"
-            spanPrecoTotal.innerText        = " R$ 00,00"
+            //Adicionando conteúdo
+            spanQuantidade.innerText        = ('Quantidade')
+            spanPreco.innerText             = ('Total')
 
+            //Colocando dentro do html
+            aside.appendChild(carrinhoFooter)
             divQuantidade.appendChild(spanQuantidade)
             divTotal.appendChild(spanPreco)
             divQuantidade.appendChild(spanQuantidadeTotal)
             divTotal.appendChild(spanPrecoTotal)
-            aside.appendChild(carrinhoFooter)
             carrinhoFooter.appendChild(divQuantidade)
             carrinhoFooter.appendChild(divTotal)
         }
     }
 
-    // static atualizarQuantidade(produtos){
-    //     const span1   = document.getElementsByClassName('carrinho__quantidadeTotal')
-    //     span1.innerText = produtos.length
-    //     console.log(span1)
-    // }
+    static atualizarQuantidade(){
+        const spanQuantidadeTotal = document.querySelector('.carrinho__quantidadeTotal')
+        spanQuantidadeTotal.innerText = db.carrinho.length        
+    }
 
+    static removerFooterCarrinho(){
+        const carrinhoFooter = document.querySelector('.carrinho__footer')
+        carrinhoFooter.innerHTML = ""
+    }
+
+    static atualizarTotal(produtos){
+        const spanPrecoTotal = document.querySelector('.carrinho__PrecoTotal')
+
+        const total = produtos.reduce(function(total, produto){
+            return total + produto.preco
+        },0)
+
+        let valorTotal = parseFloat(total.toFixed(2)).toLocaleString('pt-BR', {
+            currency: 'BRL',
+            minimumFractionDigits: 2
+            });
+        
+        spanPrecoTotal.innerText = `R$ ${valorTotal}`
+    }
 
     static atualizarCart(produtos){
         const carrinho     = document.querySelector(".carrinho__bottom")
@@ -119,23 +141,9 @@ class Cart{
                     div.appendChild(spanPreco)
                     li.appendChild(lixoImg)                    
                 })
-                // Cart.atualizarQuantidade(db.carrinho)
         }
         
     }
 }
 
 export{ Cart }
-
-
-// static atualizarTotal(produtos){
-//     const spanPrecoTotal = document.getElementById('carrinho__PrecoTotal')
-
-//     const total = produtos.reduce(function(total, produto){
-//         return total + db.carrinho.preco
-//     },0)
-    
-//     spanPrecoTotal.innerHTML = total.toFixed(2)
-// }
-
-// Cart.atualizarTotal(db.carrinho)
