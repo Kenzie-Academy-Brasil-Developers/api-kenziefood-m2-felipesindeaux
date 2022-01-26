@@ -85,7 +85,7 @@ body{
     line-height: 17px;
     position: relative;
     margin-left: 10px;
-    top: 210px;
+    top: 188px;
 }
 
 .vitrine__categoria span{
@@ -156,6 +156,7 @@ p{
 .vitrine__img{
     border-radius: 5px;
     outline: solid var(--color-primary-50);
+    width: 260px;
 }
 
 .vitrine__img:hover{
@@ -399,6 +400,16 @@ p{
         margin: auto;
     }
     /*============Vitrine============*/
+
+    .vitrine__categoria{
+        top: 210px;
+    }
+
+    .vitrine__img{
+        width: auto;
+    }
+    
+
     .vitrine__botoes{
         width: 700px;
         max-width: 700px;
