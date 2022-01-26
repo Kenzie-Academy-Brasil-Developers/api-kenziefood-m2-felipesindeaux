@@ -17,7 +17,7 @@ class Cards {
             const h1           = document.createElement('h1')
             const desc         = document.createElement('p')
             const div          = document.createElement('div')
-            const spanPreco        = document.createElement('span')
+            const spanPreco    = document.createElement('span')
             const carrinhoImg  = document.createElement('img')
 
             //Adicionando classes
@@ -46,8 +46,8 @@ class Cards {
 
             //Colocando dentro do html
             ul.appendChild(li)
-            li.appendChild(img)
             li.appendChild(divCategoria)
+            li.appendChild(img)
             li.appendChild(h1)
             li.appendChild(desc)
             li.appendChild(div)
