@@ -81,6 +81,7 @@ body{
     font-weight: 500;
     font-size: 11.5px;
     line-height: 17px;
+    position: relative;
     top: 210px;
 }
 
