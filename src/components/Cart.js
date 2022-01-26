@@ -1,5 +1,19 @@
+import { db } from '../mock/db.js'
+
 class Cart{
-    static criarCart(produtos){
+
+    static adicionandoCart(idProduto){
+        
+        const produtoFiltrado = db.foods.find(function(produto){
+            return produto.id == idProduto
+        })
+        
+        db.carrinho.push(produtoFiltrado)
+        Cart.atualizarCart(db.carrinho)
+
+    }
+
+    static atualizarCart(produtos){
 
         const carrinho     = document.querySelector(".carrinho__bottom")
         carrinho.innerHTML = ""
@@ -22,6 +36,7 @@ class Cart{
             div.classList.add('carrinho__flex')
             divCategoria.classList.add('carrinho__categoria')
             lixoImg.classList.add("carrinho__excluir")
+            lixoImg.setAttribute('data-id', id)
 
             //Adicionando conteúdo
             img.setAttribute('src', imagem)
