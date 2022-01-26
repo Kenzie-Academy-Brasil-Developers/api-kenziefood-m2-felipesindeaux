@@ -1,4 +1,4 @@
-import { Cart } from './cart.js'
+import Cart from './cart.js'
 
 class Cards {
     static criarCards(produtos){
@@ -65,4 +65,4 @@ class Cards {
     }
 }
 
-export { Cards }
+export default Cards

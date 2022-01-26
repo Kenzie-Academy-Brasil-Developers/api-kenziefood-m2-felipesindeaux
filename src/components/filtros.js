@@ -1,5 +1,5 @@
-import { Cards } from "./cards.js"
-import { db } from "./../mock/db.js"
+import Cards from "./cards.js"
+import db from "./../mock/db.js"
 
 class Filtros {
 
@@ -53,4 +53,4 @@ class Filtros {
 
 }
 
-export{ Filtros }
+export default Filtros

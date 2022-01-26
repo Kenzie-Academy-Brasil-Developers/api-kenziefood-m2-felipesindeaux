@@ -1,5 +1,5 @@
-import { Cards } from "./cards.js"
-import { db } from "./../mock/db.js"
+import Cards from "./cards.js"
+import db from "./../mock/db.js"
 
 class Search{
 
@@ -50,4 +50,4 @@ class Search{
 
 }
 
-export{ Search }
+export default Search

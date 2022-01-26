@@ -1,4 +1,4 @@
-import { FoodController } from "./controllers/foodControllers.js"
+import FoodController from "./controllers/foodControllers.js"
 
 await FoodController.saveProducts()
 await FoodController.montarCards()

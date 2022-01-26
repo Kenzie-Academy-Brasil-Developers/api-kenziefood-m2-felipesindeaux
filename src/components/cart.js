@@ -1,4 +1,4 @@
-import { db } from '../mock/db.js'
+import db from '../mock/db.js'
 
 class Cart{
 
@@ -93,4 +93,4 @@ class Cart{
     }
 }
 
-export{ Cart }
+export default Cart

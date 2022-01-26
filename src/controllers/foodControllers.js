@@ -1,8 +1,8 @@
-import { FoodRoutes } from "../routes/foods.js";
-import { db } from "../mock/db.js"
-import { Cards } from "../components/cards.js"
-import { Filtros } from "../components/filtros.js"
-import { Search } from "../components/search.js"
+import FoodRoutes from "../routes/foods.js";
+import db from "../mock/db.js"
+import Cards from "../components/cards.js"
+import Filtros from "../components/filtros.js"
+import Search from "../components/search.js"
 
 class FoodController {
     
@@ -34,4 +34,4 @@ class FoodController {
 
 }
 
-export { FoodController }
+export default FoodController 
