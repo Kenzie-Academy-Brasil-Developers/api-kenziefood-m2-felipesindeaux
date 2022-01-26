@@ -3,4 +3,4 @@ const db = {
     carrinho: []
 }
 
-export {db}
+export default db
