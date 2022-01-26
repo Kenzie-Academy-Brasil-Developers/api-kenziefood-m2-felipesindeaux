@@ -13,14 +13,16 @@ class Cards {
             const precoTratado = preco.toFixed(2)
 
             //Criando os elementos
-            const li           = document.createElement('li')
-            const img          = document.createElement('img')
-            const divCategoria = document.createElement('div')
-            const h1           = document.createElement('h1')
-            const desc         = document.createElement('p')
-            const div          = document.createElement('div')
-            const spanPreco        = document.createElement('span')
-            const carrinhoImg  = document.createElement('img')
+            const li            = document.createElement('li')
+            const img           = document.createElement('img')
+            const imgCategoria  = document.createElement('img')
+            const spanCategoria = document.createElement('span')
+            const divCategoria  = document.createElement('div')
+            const h1            = document.createElement('h1')
+            const desc          = document.createElement('p')
+            const div           = document.createElement('div')
+            const spanPreco     = document.createElement('span')
+            const carrinhoImg   = document.createElement('img')
 
             //Adicionando classes
             li.classList.add('vitrine__card')
@@ -30,7 +32,8 @@ class Cards {
 
             //Adicionando conteúdo
             img.setAttribute('src', imagem)
-            divCategoria.innerText = categoria
+            spanCategoria.innerText = categoria
+            imgCategoria.setAttribute('src', `src/assets/images/Icon_${categoria}.png`)
             h1.innerText = nome
             desc.innerText = descricao
             spanPreco.innerText = `R$ ${precoTratado}`
@@ -50,6 +53,8 @@ class Cards {
             ul.appendChild(li)
             li.appendChild(img)
             li.appendChild(divCategoria)
+            divCategoria.appendChild(imgCategoria)
+            divCategoria.appendChild(spanCategoria)
             li.appendChild(h1)
             li.appendChild(desc)
             li.appendChild(div)
