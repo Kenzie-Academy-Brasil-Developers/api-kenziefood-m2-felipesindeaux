@@ -8,6 +8,7 @@ class Filtros {
 
         const buttonTodos = document.querySelector("#botao--todos")
         buttonTodos.addEventListener("click", () => Cards.criarCards(db.foods))
+        
     }
 
     // Filtro Panificadora
@@ -15,23 +16,12 @@ class Filtros {
 
         const buttonPanificadora = document.querySelector("#botao--panificadora")
         
-        buttonPanificadora.addEventListener("click", e => {
-            
-            const botaoFiltar = e.target
-            if(botaoFiltar.tagName === "BUTTON"){
+        buttonPanificadora.addEventListener("click", evt => {
 
-                const valuePanificadora = document.querySelector("#botao--panificadora").value
-                const mostrarPesquisa = db.foods.filter(function(produtos){
-
-                    return (
-                        produtos.categoria.toLowerCase() == valuePanificadora.toLowerCase()
-                    )
-
-                })
+                const mostrarPesquisa = db.foods.filter((produto) => produto.categoria.toLowerCase() == buttonPanificadora.value.toLowerCase())
                 
                 Cards.criarCards(mostrarPesquisa)
                 
-            }
         })
     }
 
