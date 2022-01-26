@@ -7,29 +7,18 @@ class Search{
 
         const imgPesquisar = document.querySelector(".pesquisar figure img")
 
-        // Pesquisando a partir do click na lupa
-        imgPesquisar.addEventListener('click', function(e){
-
-            const botaoAdicionar = e.target
-            if(botaoAdicionar.tagName === "IMG"){
+        imgPesquisar.addEventListener('click', function(){
 
                 const inputPesquisar = document.querySelector(".pesquisar input").value
-                const mostrarPesquisa = db.foods.filter(function(produtos){
 
-                    return (
-                        produtos.categoria.toLowerCase() == inputPesquisar.toLowerCase()
-                    )
-
-                })
+                const produtosFiltrados = db.foods.filter((produto) => produto.categoria.toLowerCase() == inputPesquisar.toLowerCase())
                 
                 if(inputPesquisar.length !== 0){
-                    Cards.criarCards(mostrarPesquisa)
+                    Cards.criarCards(produtosFiltrados)
                 }else{
                     Cards.criarCards(db.foods)
                 }
-        
-            }
-            
+
         })
 
         document.addEventListener("keypress", evt => {
@@ -37,22 +26,17 @@ class Search{
             if(evt.key === "Enter"){
 
                 const inputPesquisar = document.querySelector(".pesquisar input").value
-                const mostrarPesquisa = db.foods.filter(function(produtos){
-
-                    return (
-                        produtos.categoria.toLowerCase() == inputPesquisar.toLowerCase()
-                    )
-
-                })
+                const produtosFiltrados = db.foods.filter((produto) => produto.categoria.toLowerCase() == inputPesquisar.toLowerCase())
 
                 if(inputPesquisar.length !== 0){
-                    Cards.criarCards(mostrarPesquisa)
+                    Cards.criarCards(produtosFiltrados)
                 }else{
                     Cards.criarCards(db.foods)
                 }
-            }
-        })
 
+            }
+
+        })
 
     }
 
