@@ -39,8 +39,8 @@ class Cards {
             carrinhoImg.addEventListener('click', e => {
 
                 const botaoAdicionar = e.target
-                const att = botaoAdicionar.getAttribute('data-id')
-                Cart.adicionandoCart(att)
+                const dataId = botaoAdicionar.getAttribute('data-id')
+                Cart.adicionandoCart(dataId)
 
             })
 
