@@ -28,25 +28,43 @@ class Cart{
     static criarQuantidadePreco(){
 
         if (!document.querySelector(".carrinho__quantidadeTotal") ){
-            const aside        = document.querySelector(".carrinho")
-            const divQuantidade = document.createElement('div')
-            const divTotal      = document.createElement('div')
-            const spanQuantidadeTotal = document.createElement('span')
-            const spanPrecoTotal = document.createElement('span')
+            const aside                     = document.querySelector(".carrinho")
+            const carrinhoFooter            = document.createElement('div')
+            const divQuantidade             = document.createElement('div')
+            const divTotal                  = document.createElement('div')
+            const spanQuantidadeTotal       = document.createElement('span')
+            const spanPrecoTotal            = document.createElement('span')
+            const spanQuantidade            = document.createElement('span')
+            const spanPreco                 = document.createElement('span')
+
+
+            carrinhoFooter.classList.add('carrinho__footer')
             divQuantidade.classList.add('carrinho__quantidade')
             divTotal.classList.add('carrinho__total')
-            divQuantidade.innerText         = ('Quantidade')
-            divTotal.innerText              = ('Total')
             spanQuantidadeTotal.classList.add('carrinho__quantidadeTotal')
             spanPrecoTotal.classList.add('carrinho__PrecoTotal')
-            spanQuantidadeTotal.innerText   = " 0"
+            
+            spanQuantidade.innerText         = ('Quantidade')
+            spanPreco.innerText              = ('Total')
+            spanQuantidadeTotal.innerHTML   = " 0"
             spanPrecoTotal.innerText        = " R$ 00,00"
+
+            divQuantidade.appendChild(spanQuantidade)
+            divTotal.appendChild(spanPreco)
             divQuantidade.appendChild(spanQuantidadeTotal)
             divTotal.appendChild(spanPrecoTotal)
-            aside.appendChild(divQuantidade)
-            aside.appendChild(divTotal)
+            aside.appendChild(carrinhoFooter)
+            carrinhoFooter.appendChild(divQuantidade)
+            carrinhoFooter.appendChild(divTotal)
         }
     }
+
+    // static atualizarQuantidade(produtos){
+    //     const span1   = document.getElementsByClassName('carrinho__quantidadeTotal')
+    //     span1.innerText = produtos.length
+    //     console.log(span1)
+    // }
+
 
     static atualizarCart(produtos){
         const carrinho     = document.querySelector(".carrinho__bottom")
@@ -99,10 +117,25 @@ class Cart{
                     div.appendChild(h1)
                     div.appendChild(divCategoria)
                     div.appendChild(spanPreco)
-                    li.appendChild(lixoImg)
+                    li.appendChild(lixoImg)                    
                 })
+                // Cart.atualizarQuantidade(db.carrinho)
         }
+        
     }
 }
 
 export{ Cart }
+
+
+// static atualizarTotal(produtos){
+//     const spanPrecoTotal = document.getElementById('carrinho__PrecoTotal')
+
+//     const total = produtos.reduce(function(total, produto){
+//         return total + db.carrinho.preco
+//     },0)
+    
+//     spanPrecoTotal.innerHTML = total.toFixed(2)
+// }
+
+// Cart.atualizarTotal(db.carrinho)
