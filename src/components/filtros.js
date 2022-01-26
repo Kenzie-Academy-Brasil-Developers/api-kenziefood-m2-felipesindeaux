@@ -1,5 +1,5 @@
-import {Cards} from "./cards.js"
-import {db} from "./../mock/db.js"
+import { Cards } from "./cards.js"
+import { db } from "./../mock/db.js"
 
 class Filtros {
 
@@ -7,11 +7,7 @@ class Filtros {
     static filtroTodos(){
 
         const buttonTodos = document.querySelector("#botao--todos")
-        buttonTodos.addEventListener("click", e => {
-
-            Cards.criarCards(db.foods)
-
-        })
+        buttonTodos.addEventListener("click", () => Cards.criarCards(db.foods))
     }
 
     // Filtro Panificadora
@@ -91,4 +87,4 @@ class Filtros {
 
 }
 
-export{Filtros}
+export{ Filtros }
