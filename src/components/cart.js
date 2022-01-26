@@ -99,9 +99,12 @@ class Cart{
         if (produtos.length === 0){
 
             carrinho.removeAttribute('id')
+            carrinho.style.backgroundColor = 'var(--color-grey-1)';
             carrinho.innerHTML = "<img src='src/assets/images/shopping-bag.png' alt='Ícone de uma bolsa vazia'> <h2>Ops!</h2> <p>Por enquanto não temos produtos no carrinho</p>"
             
         } else {
+
+            carrinho.style.backgroundColor = 'white';
 
             produtos.forEach(produto => {
 
@@ -153,6 +156,7 @@ class Cart{
                 div.appendChild(spanPreco)
                 li.appendChild(lixoImg)
             })
+
             if (db.carrinho.length === 0){
                 Cart.removerFooterCarrinho()  
             }
