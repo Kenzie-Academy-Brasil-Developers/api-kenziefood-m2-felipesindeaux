@@ -10,8 +10,6 @@ class Cards {
             
             const {id, nome, preco, categoria, descricao, imagem} = produto
 
-            const precoTratado = preco.toFixed(2)
-
             //Criando os elementos
             const li            = document.createElement('li')
             const img           = document.createElement('img')
@@ -36,7 +34,7 @@ class Cards {
             imgCategoria.setAttribute('src', `src/assets/images/Icon_${categoria}.png`)
             h1.innerText = nome
             desc.innerText = descricao
-            spanPreco.innerText = `R$ ${precoTratado}`
+            spanPreco.innerText = `R$ ${preco.toFixed(2)}`
             carrinhoImg.setAttribute('src', 'src/assets/images/Icon_carrinho_verde.png')
             carrinhoImg.setAttribute('data-id', id)
 
