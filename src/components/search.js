@@ -1,76 +1,86 @@
-import {Cards} from "./cards.js"
-import {db} from "./../mock/db.js"
+import Cards from "./cards.js"
+import db from "./../mock/db.js"
 
 class Search{
 
-    // Barra de pesquisa
     static searchProduct(){
 
         const imgPesquisar = document.querySelector(".pesquisar figure img")
 
-        // Pesquisando a partir do click na lupa
-        imgPesquisar.addEventListener('click', function(e){
+        imgPesquisar.addEventListener('click', function(){
 
-            const botaoAdicionar = e.target
-            if(botaoAdicionar.tagName === "IMG"){
+                const inputPesquisar = document.querySelector(".pesquisar input").value.toLowerCase()
 
-                const inputPesquisar = document.querySelector(".pesquisar input").value
-                const mostrarPesquisa = db.foods.filter(function(produtos){
-
-                    return (
-                        produtos.categoria.toLowerCase() == inputPesquisar.toLowerCase()
-                    )
-
-                })
+                const produtosFiltrados = Search.filtrarAutomaticamente(inputPesquisar)
                 
                 if(inputPesquisar.length !== 0){
-                    Cards.criarCards(mostrarPesquisa)
+                    Cards.criarCards(produtosFiltrados)
                 }else{
                     Cards.criarCards(db.foods)
                 }
-        
+
+        })
+
+        imgPesquisar.addEventListener('mouseenter', () => {
+            imgPesquisar.setAttribute('src', 'src/assets/images/searchIconHover.png')
+        })
+
+        imgPesquisar.addEventListener('mouseout', () => {
+            imgPesquisar.setAttribute('src', 'src/assets/images/searchIcon.png')
+        })
+
+
+        document.addEventListener("keypress", evt => {
+
+            if(evt.key === "Enter"){
+
+                const inputPesquisar = document.querySelector(".pesquisar input").value
+                const produtosFiltrados = Search.filtrarAutomaticamente(inputPesquisar)
+
+                if(inputPesquisar.length !== 0){
+                    Cards.criarCards(produtosFiltrados)
+                }else{
+                    Cards.criarCards(db.foods)
+                }
+
+            }
+
+        })
+
+        const input = document.querySelector(".pesquisar input")
+
+        input.addEventListener("keyup", function(event) {
+            const busca = event.target.value
+
+            const result = Search.filtrarAutomaticamente(busca)
+
+            Cards.criarCards(result)
+        })
+
+    }
+
+    static filtrarAutomaticamente(value){
+
+        value = value.toLowerCase()
+
+        const produtosFiltrados = db.foods.filter(produto => {
+            if(produto.nome.toLowerCase().includes(value) || produto.categoria.toLowerCase().includes(value)){
+                return produto
             }
             
         })
 
-        // Pesquisando a partir do enter
-        document.addEventListener("keypress", e => {
-
-            if(e.key === "Enter"){
-
-                const inputPesquisar = document.querySelector(".pesquisar input").value
-                const mostrarPesquisa = db.foods.filter(function(produtos){
-
-                    return (
-                        produtos.categoria.toLowerCase() == inputPesquisar.toLowerCase()
-                    )
-
-                })
-
-                if(inputPesquisar.length !== 0){
-                    Cards.criarCards(mostrarPesquisa)
-                }else{
-                    Cards.criarCards(db.foods)
-                }
-            }
-        })
-
-
+        return produtosFiltrados
     }
 
-    // Voltar para Home pelo logo
     static homeLogo(){
 
         const buttonLogo = document.querySelector(".logo img")
 
-        buttonLogo.addEventListener("click", e => {
+        buttonLogo.addEventListener("click", () => Cards.criarCards(db.foods))
 
-            Cards.criarCards(db.foods)
-
-        })
     }
+
 }
 
-export{
-    Search
-}
+export default Search

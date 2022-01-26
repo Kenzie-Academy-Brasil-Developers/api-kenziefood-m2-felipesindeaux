@@ -1,4 +1,4 @@
-import { db } from '../mock/db.js'
+import db from '../mock/db.js'
 
 class Cart{
 
@@ -94,56 +94,65 @@ class Cart{
 
         if (produtos.length === 0){
 
+            carrinho.removeAttribute('id')
             carrinho.innerHTML = "<img src='src/assets/images/shopping-bag.png' alt='Ícone de uma bolsa vazia'> <h2>Ops!</h2> <p>Por enquanto não temos produtos no carrinho</p>"
             
         } else {
-                produtos.forEach(produto => {
 
-                    const {id, nome, preco, categoria, imagem} = produto
-                    
-                    //Criando os elementos
-                    const li           = document.createElement('li')
-                    const img          = document.createElement('img')
-                    const div          = document.createElement('div')
-                    const h1           = document.createElement('h1')
-                    const divCategoria = document.createElement('div')
-                    const spanPreco    = document.createElement('span')
-                    const lixoImg      = document.createElement('img')
-        
-                    //Adicionando classes
-                    li.classList.add('carrinho__card')
-                    div.classList.add('carrinho__flex')
-                    divCategoria.classList.add('carrinho__categoria')
-                    lixoImg.classList.add('carrinho__excluir')
-                    lixoImg.setAttribute('data-id', id)
-        
-                    //Adicionando event listener
-                    lixoImg.addEventListener('click', e => {
-        
-                        const botaoRemover = e.target
-                        const dataId = botaoRemover.getAttribute('data-id')
-                        Cart.removendoCart(dataId, produtos)
-                    })
-        
-                    //Adicionando conteúdo
-                    img.setAttribute('src', imagem)
-                    divCategoria.innerText = categoria
-                    h1.innerText           = nome
-                    spanPreco.innerText    = preco
-                    lixoImg.setAttribute('src', 'src/assets/images/Icon_lixeira.png')
-        
-                    //Colocando dentro do html
-                    carrinho.appendChild(li)
-                    li.appendChild(img)
-                    li.appendChild(div)
-                    div.appendChild(h1)
-                    div.appendChild(divCategoria)
-                    div.appendChild(spanPreco)
-                    li.appendChild(lixoImg)                    
+            produtos.forEach(produto => {
+
+                const {id, nome, preco, categoria, imagem} = produto
+                
+                carrinho.id = 'carrinho__cheio'
+
+
+                //Criando os elementos
+                const li           = document.createElement('li')
+                const img          = document.createElement('img')
+                const div          = document.createElement('div')
+                const h1           = document.createElement('h1')
+                const divCategoria = document.createElement('div')
+                const spanPreco    = document.createElement('span')
+                const lixoImg      = document.createElement('img')
+    
+                //Adicionando classes
+                li.classList.add('carrinho__card')
+                div.classList.add('carrinho__flex')
+                divCategoria.classList.add('carrinho__categoria')
+                img.classList.add("carrinho__img")
+                lixoImg.classList.add("carrinho__excluir")
+                lixoImg.setAttribute('data-id', id)
+    
+                //Adicionando event listener
+                lixoImg.addEventListener('click', e => {
+    
+                    const botaoRemover = e.target
+                    const dataId = botaoRemover.getAttribute('data-id')
+                    Cart.removendoCart(dataId)
                 })
+    
+                
+
+                //Adicionando conteúdo
+                img.setAttribute('src', imagem)
+                divCategoria.innerText = categoria
+                h1.innerText           = nome
+                spanPreco.innerText    = `R$ ${preco.toFixed(2)}`
+                lixoImg.setAttribute('src', 'src/assets/images/Icon_lixeira.png')
+    
+                //Colocando dentro do html
+                carrinho.appendChild(li)
+                li.appendChild(img)
+                li.appendChild(div)
+                div.appendChild(h1)
+                div.appendChild(divCategoria)
+                div.appendChild(spanPreco)
+                li.appendChild(lixoImg)
+            })
+
         }
         
     }
 }
 
-export{ Cart }
+export default Cart
