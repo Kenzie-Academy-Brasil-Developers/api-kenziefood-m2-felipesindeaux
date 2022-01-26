@@ -29,6 +29,8 @@ body{
     display: flex;
     flex-direction: column;
     align-items: center;
+    max-width: 87vw;
+    margin: auto;
 }
 
 /*============Vitrine============*/
@@ -192,7 +194,7 @@ header{
 .logo{
     width: 123px;
     height: 46px;
-    margin: 15px;
+    margin: 15px 15px 15px 20px;
     cursor: pointer;
 }
 .flex{
@@ -267,13 +269,14 @@ header{
 .carrinho__bottom{
     display: flex;
     flex-direction: column;
-    width: 100%;
-    height: 433px;
+    height: 400px;
     justify-content: center;
     align-items: center;
     text-align: center;
     background-color: var(--color-grey-1);
     color: var(--color-grey-3);
+    overflow-y: auto;
+    scrollbar-width: none;   
 }
 
 .carrinho__bottom h2{
@@ -393,7 +396,11 @@ header{
 
 }
 
-@media (min-width: 1760px) {
+@media (min-width: 1455px) {
+
+    .vitrine{
+        max-width: 970px;
+    }
 
     .vitrine__botoes{
         justify-content: flex-start;
@@ -422,20 +429,16 @@ header{
 
   /*============Header============*/
     .logo{
-        margin: 15px 15px 15px 100px;
+        margin: 15px 15px 15px 130px;
     }
     .flex{
         margin: 15px 100px 15px 15px;
     }
-    .carrinho{
-        margin-left: 60px;
-    }
-    /* .carrinho__bottom{
-        width: 93%;
-    } */
+   
     #carrinho__cheio{
         padding: 0px 10px;
     }
+
     .carrinho__card{
         width: 100%;
     }
