@@ -247,9 +247,8 @@ p{
 .carrinho{
     display: flex;
     flex-direction: column;
-    height: 500px;
     width: 310px;
-    justify-content: center;
+    margin-top: 15px;
 }
 
 .carrinho__top{
@@ -389,13 +388,13 @@ p{
 
     header{
         box-shadow: 0px 0px 40px -20px rgba(0, 0, 0, 0.25);
+        margin-bottom: 40px;
     }
 
     .linha__horizontal{
         display: flex;
         align-items: center;
         justify-content: space-between;
-        margin-bottom: 40px;
         max-width: 1000px;
         margin: auto;
     }
