@@ -34,17 +34,18 @@ body{
 /*============Vitrine============*/
 
 .vitrine__botoes{
-    width: 511px;
-    height: 40px;
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
     align-items: center;
     padding: 15px;
     box-sizing: border-box;
+    max-width: 375px;
+    overflow-x: scroll;
+    scrollbar-width: none;
 } 
 
-.vitrine__botao{
+.vitrine__botao, .vitrine__categoria{
     height: 40px;
     border-radius: 30px;
     padding: 15px;
@@ -62,11 +63,76 @@ body{
     align-items: center;
     border: transparent;
     box-sizing: border-box;
-    border-radius: 30px;
     flex: none;
     order: 0;
     flex-grow: 0;
-    margin: 0px 22px 0px 0px;
+    margin: 0px 22px 0px 0px;    
+}
+
+.vitrine__categoria{
+    height: 30px;
+    width: 132px;
+    background-color: var(--color-primary-50);
+    font-weight: 500;
+    font-size: 11.5px;
+    line-height: 17px;
+}
+
+h1{
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 27px;
+    margin: 15px 0px;
+}
+
+p{
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 16px;
+    color: rgba(0, 0, 0, 0.5);
+}
+
+.vitrine__flex{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 7px;
+}
+
+.vitrine__flex span{
+    font-style: normal;
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 13px;
+    color: #212529;
+    align-self: center;
+}
+
+.vitrine__cards{
+    height: 400px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    overflow: visible;
+    max-width: 375px;
+    overflow-x: scroll;
+    scrollbar-width: none;
+    margin-top: 20px;    
+}
+
+.vitrine__card{
+    margin: 5px 5px 0px 18px;
+    padding-top: 5px;
+    display: inline-block;
+    max-width: 375px;
+}
+
+.vitrine__card img:first-child:hover{
+    border-radius: 5px;
+    outline: solid var(--color-primary);
 }
 
 #botao--todos{
@@ -87,6 +153,15 @@ body{
     width: 107px;
     cursor: pointer;
 
+}
+
+#botao--bebidas{
+    background-color: var(--color-product-4);
+    width: 118px;
+}
+
+.vitrine__botao:hover{
+    outline: 1.5px solid #212529;
 }
 
 /*============Header============*/
@@ -203,11 +278,34 @@ header{
     cursor: pointer;
 }
 
-.vitrine__botao:hover{
-    outline: 1.5px solid #212529;
-}
+
 
 @media (min-width: 768px) {
+    /*============Vitrine============*/
+    .vitrine__botoes{
+        width: 700px;
+        max-width: 700px;
+        overflow-x: auto;
+    }
+
+    .vitrine__cards{
+        width: 100%;
+        max-width: 1280px;
+        height: 1000px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        overflow-x: auto;
+        overflow-y: auto;
+        scrollbar-width: none;   
+    }
+    
+    .vitrine__card{
+        margin: 0px 5px 0px 18px;
+        display: inline-block;
+        max-width: 300px;
+    } 
 
 }
 

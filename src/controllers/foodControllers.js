@@ -19,8 +19,6 @@ class FoodController {
             
     }
 
-    
-
 }
 
 export {FoodController}

@@ -1,3 +1,5 @@
+import { Cart } from './cart.js'
+
 class Cards {
     static criarCards(produtos){
         
@@ -6,7 +8,7 @@ class Cards {
         
         produtos.forEach(produto => {
             
-            const {nome, preco, categoria, descricao, imagem} = produto
+            const {id, nome, preco, categoria, descricao, imagem} = produto
 
             //Criando os elementos
             const li           = document.createElement('li')
@@ -21,6 +23,7 @@ class Cards {
             //Adicionando classes
             li.classList.add('vitrine__card')
             div.classList.add('vitrine__flex')
+            carrinhoImg.classList.add('vitrine__flex__img')
             divCategoria.classList.add('vitrine__categoria')
 
             //Adicionando conteúdo
@@ -30,6 +33,16 @@ class Cards {
             desc.innerText = descricao
             spanPreco.innerText = preco
             carrinhoImg.setAttribute('src', 'src/assets/images/Icon_carrinho_verde.png')
+            carrinhoImg.setAttribute('data-id', id)
+
+            //Adicionando Events Listener
+            carrinhoImg.addEventListener('click', e => {
+
+                const botaoAdicionar = e.target
+                const dataId = botaoAdicionar.getAttribute('data-id')
+                Cart.adicionandoCart(dataId)
+
+            })
 
             //Colocando dentro do html
             ul.appendChild(li)

@@ -1,5 +1,6 @@
 const db = {
-    foods: []
+    foods: [],
+    carrinho: []
 }
 
 export {db}
