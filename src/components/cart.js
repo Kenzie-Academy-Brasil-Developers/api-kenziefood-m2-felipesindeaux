@@ -25,15 +25,19 @@ class Cart{
         db.carrinho.splice(index, 1)
         this.atualizarCart(db.carrinho)
         Cart.atualizarQuantidade()
-        Cart.atualizarTotal(db.carrinho)        
+        Cart.atualizarTotal(db.carrinho)
+        if (db.carrinho.length === 0){
+            Cart.removerFooterCarrinho()  
+        }
     }
     
     static criarQuantidadePreco(){
+        const carrinhoFooter = document.querySelector('.carrinho__footer')
 
         if (!document.querySelector(".carrinho__quantidadeTotal") ){
             //Criando os elementos
             const aside                     = document.querySelector(".carrinho")
-            const carrinhoFooter            = document.createElement('div')
+            // const carrinhoFooter            = document.createElement('div')
             const divQuantidade             = document.createElement('div')
             const divTotal                  = document.createElement('div')
             const spanQuantidadeTotal       = document.createElement('span')
@@ -42,7 +46,7 @@ class Cart{
             const spanPreco                 = document.createElement('span')
 
             //Adicionando classes
-            carrinhoFooter.classList.add('carrinho__footer')
+            // carrinhoFooter.classList.add('carrinho__footer')
             divQuantidade.classList.add('carrinho__quantidade')
             divTotal.classList.add('carrinho__total')
             spanQuantidadeTotal.classList.add('carrinho__quantidadeTotal')
@@ -149,7 +153,9 @@ class Cart{
                 div.appendChild(spanPreco)
                 li.appendChild(lixoImg)
             })
-
+            if (db.carrinho.length === 0){
+                Cart.removerFooterCarrinho()  
+            }
         }
         
     }
