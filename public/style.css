@@ -84,6 +84,7 @@ body{
     font-size: 11.5px;
     line-height: 17px;
     position: relative;
+    margin-left: 10px;
     top: 210px;
 }
 
@@ -187,7 +188,7 @@ p{
 }
 
 /*============Header============*/
-header{
+.linha__horizontal{
     width: 100%;
     margin-bottom: 15px;
 }
@@ -362,11 +363,16 @@ header{
 @media (min-width: 768px) {
 
     header{
+        box-shadow: 0px 0px 40px -20px rgba(0, 0, 0, 0.25);
+    }
+
+    .linha__horizontal{
         display: flex;
         align-items: center;
         justify-content: space-between;
         margin-bottom: 40px;
-        box-shadow: 0px 0px 40px -20px rgba(0, 0, 0, 0.25);
+        max-width: 1000px;
+        margin: auto;
     }
     /*============Vitrine============*/
     .vitrine__botoes{
@@ -397,6 +403,10 @@ header{
 }
 
 @media (min-width: 1455px) {
+
+    .linha__horizontal{
+        max-width: 1675px;
+    }
 
     .vitrine{
         max-width: 970px;
