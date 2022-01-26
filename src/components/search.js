@@ -21,6 +21,15 @@ class Search{
 
         })
 
+        imgPesquisar.addEventListener('mouseenter', () => {
+            imgPesquisar.setAttribute('src', 'src/assets/images/searchIconHover.png')
+        })
+
+        imgPesquisar.addEventListener('mouseout', () => {
+            imgPesquisar.setAttribute('src', 'src/assets/images/searchIcon.png')
+        })
+
+
         document.addEventListener("keypress", evt => {
 
             if(evt.key === "Enter"){
