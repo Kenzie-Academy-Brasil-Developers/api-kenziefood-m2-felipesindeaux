@@ -50,7 +50,6 @@ class Cards {
 
             //Colocando dentro do html
             ul.appendChild(li)
-            li.appendChild(img)
             li.appendChild(divCategoria)
             divCategoria.appendChild(imgCategoria)
             divCategoria.appendChild(spanCategoria)

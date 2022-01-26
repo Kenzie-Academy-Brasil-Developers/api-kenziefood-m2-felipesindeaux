@@ -33,6 +33,7 @@ class Cart{
 
         if (produtos.length === 0){
 
+            carrinho.removeAttribute('id')
             carrinho.innerHTML = "<img src='src/assets/images/shopping-bag.png' alt='Ícone de uma bolsa vazia'> <h2>Ops!</h2> <p>Por enquanto não temos produtos no carrinho</p>"
             
         } else {
@@ -41,6 +42,9 @@ class Cart{
 
                 const {id, nome, preco, categoria, imagem} = produto
                 
+                carrinho.id = 'carrinho__cheio'
+
+
                 //Criando os elementos
                 const li           = document.createElement('li')
                 const img          = document.createElement('img')
@@ -54,6 +58,7 @@ class Cart{
                 li.classList.add('carrinho__card')
                 div.classList.add('carrinho__flex')
                 divCategoria.classList.add('carrinho__categoria')
+                img.classList.add("carrinho__img")
                 lixoImg.classList.add("carrinho__excluir")
                 lixoImg.setAttribute('data-id', id)
     
@@ -65,11 +70,13 @@ class Cart{
                     Cart.removendoCart(dataId)
                 })
     
+                
+
                 //Adicionando conteúdo
                 img.setAttribute('src', imagem)
                 divCategoria.innerText = categoria
                 h1.innerText           = nome
-                spanPreco.innerText    = preco
+                spanPreco.innerText    = `R$ ${preco.toFixed(2)}`
                 lixoImg.setAttribute('src', 'src/assets/images/Icon_lixeira.png')
     
                 //Colocando dentro do html
