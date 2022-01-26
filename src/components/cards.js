@@ -48,6 +48,18 @@ class Cards {
 
             })
 
+            carrinhoImg.addEventListener('mouseenter', () => {
+
+                carrinhoImg.setAttribute('src', 'src/assets/images/Icon_carrinho_verde_hover.png')
+
+            })
+
+            carrinhoImg.addEventListener('mouseout', () => {
+
+                carrinhoImg.setAttribute('src', 'src/assets/images/Icon_carrinho_verde.png')
+
+            })
+
             //Colocando dentro do html
             ul.appendChild(li)
             li.appendChild(divCategoria)

@@ -234,7 +234,6 @@ p{
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: var(--color-primary-50);
     width: 42px;
     height: 42px;
     margin: 0px;
@@ -242,10 +241,7 @@ p{
     border-radius: 22px;
     cursor: pointer;
 }
-.pesquisar img{
-    width: 13px;
-    height: 17px;
-}
+
 /*============Carrinho============*/
 .carrinho{
     display: flex;
