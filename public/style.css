@@ -55,9 +55,8 @@ body{
     height: 40px;
     border-radius: 30px;
     padding: 15px;
-    font-family: 'Inter', sans-serif;
+    /* font-family: 'Inter', sans-serif; */
     font-size: 14px;
-    font-style: normal;
     font-weight: 500;
     line-height: 17px;
     letter-spacing: 0em;
@@ -77,11 +76,20 @@ body{
 
 .vitrine__categoria{
     height: 30px;
-    width: 132px;
+    width: fit-content;
     background-color: var(--color-primary-50);
     font-weight: 500;
     font-size: 11.5px;
     line-height: 17px;
+}
+
+.vitrine__categoria span{
+    font-weight: 500;
+}
+
+
+.vitrine__categoria img{
+    margin-right: 10px;
 }
 
 h1{
