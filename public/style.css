@@ -137,16 +137,22 @@ p{
 
 #botao--todos{
     background-color: var(--color-grey-1);
+    cursor: pointer;
+
 }
 
 #botao--panificadora{
     background-color: var(--color-product-2);
     width: 148px;
+    cursor: pointer;
+
 }
 
 #botao--frutas{
     background-color: var(--color-product-3);
     width: 107px;
+    cursor: pointer;
+
 }
 
 #botao--bebidas{
@@ -167,6 +173,7 @@ header{
     width: 123px;
     height: 46px;
     margin: 15px;
+    cursor: pointer;
 }
 .flex{
     display: flex;
@@ -263,6 +270,12 @@ header{
 .carrinho__bottom img{
     width: 56px;
     height: 56px;
+}
+
+#botao--bebidas{
+    background-color: var(--color-product-4);
+    width: 118px;
+    cursor: pointer;
 }
 
 
