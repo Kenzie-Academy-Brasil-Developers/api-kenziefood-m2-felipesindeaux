@@ -24,11 +24,13 @@ class FoodController {
     static startButtonsEventsListeners(){
 
         Search.searchProduct()
+        // Search.filtrarAutomaticamente()
         Search.homeLogo()
         Filtros.filtroTodos()
         Filtros.filtroPanificadora()
         Filtros.filtroFrutas()
         Filtros.filtroBebidas()
+
 
     }
 

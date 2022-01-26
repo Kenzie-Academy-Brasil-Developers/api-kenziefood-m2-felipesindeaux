@@ -9,9 +9,9 @@ class Search{
 
         imgPesquisar.addEventListener('click', function(){
 
-                const inputPesquisar = document.querySelector(".pesquisar input").value
+                const inputPesquisar = document.querySelector(".pesquisar input").value.toLowerCase()
 
-                const produtosFiltrados = db.foods.filter((produto) => produto.categoria.toLowerCase() == inputPesquisar.toLowerCase())
+                const produtosFiltrados = db.foods.filter((produto) => produto.categoria.toLowerCase() == inputPesquisar)
                 
                 if(inputPesquisar.length !== 0){
                     Cards.criarCards(produtosFiltrados)
@@ -38,6 +38,31 @@ class Search{
 
         })
 
+        const teste = document.querySelector(".pesquisar input")
+
+        teste.addEventListener("keyup", function(event) {
+            const busca = event.target.value
+            console.log(busca)
+
+            const result = Search.filtrarAutomaticamente(busca)
+
+            Cards.criarCards(result)
+        })
+
+    }
+
+    static filtrarAutomaticamente(value){
+
+        value = value.toLowerCase()
+
+        const produtosFiltrados = db.foods.filter(produto => {
+            if(produto.nome.toLowerCase().includes(value) || produto.categoria.toLowerCase().includes(value)){
+                return produto
+            }
+            
+        })
+
+        return produtosFiltrados
     }
 
     static homeLogo(){
