@@ -16,4 +16,4 @@ class FoodRoutes {
 
 }
 
-export {FoodRoutes}
+export { FoodRoutes }

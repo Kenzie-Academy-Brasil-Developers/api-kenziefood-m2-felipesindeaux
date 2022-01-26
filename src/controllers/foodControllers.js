@@ -1,6 +1,8 @@
 import { FoodRoutes } from "../routes/foods.js";
 import { db } from "../mock/db.js"
 import { Cards } from "../components/cards.js"
+import { Filtros } from "../components/filtros.js"
+import { Search } from "../components/search.js"
 
 class FoodController {
     
@@ -19,6 +21,17 @@ class FoodController {
             
     }
 
+    static startButtonsEventsListeners(){
+
+        Search.searchProduct()
+        Search.homeLogo()
+        Filtros.filtroTodos()
+        Filtros.filtroPanificadora()
+        Filtros.filtroFrutas()
+        Filtros.filtroBebidas()
+
+    }
+
 }
 
-export {FoodController}
+export { FoodController }
