@@ -10,6 +10,8 @@ class Cards {
             
             const {id, nome, preco, categoria, descricao, imagem} = produto
 
+            const precoTratado = preco.toFixed(2)
+
             //Criando os elementos
             const li           = document.createElement('li')
             const img          = document.createElement('img')
@@ -31,7 +33,7 @@ class Cards {
             divCategoria.innerText = categoria
             h1.innerText = nome
             desc.innerText = descricao
-            spanPreco.innerText = preco
+            spanPreco.innerText = `R$ ${precoTratado}`
             carrinhoImg.setAttribute('src', 'src/assets/images/Icon_carrinho_verde.png')
             carrinhoImg.setAttribute('data-id', id)
 
