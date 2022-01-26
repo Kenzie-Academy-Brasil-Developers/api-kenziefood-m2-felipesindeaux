@@ -1,94 +1,56 @@
-import {Cards} from "./cards.js"
-import {db} from "./../mock/db.js"
+import { Cards } from "./cards.js"
+import { db } from "./../mock/db.js"
 
 class Filtros {
 
-    // Filtro Todos
     static filtroTodos(){
 
         const buttonTodos = document.querySelector("#botao--todos")
-        buttonTodos.addEventListener("click", e => {
-
-            Cards.criarCards(db.foods)
-
-        })
+        buttonTodos.addEventListener("click", () => Cards.criarCards(db.foods))
+        
     }
 
-    // Filtro Panificadora
     static filtroPanificadora(){
 
         const buttonPanificadora = document.querySelector("#botao--panificadora")
         
-        buttonPanificadora.addEventListener("click", e => {
-            
-            const botaoFiltar = e.target
-            if(botaoFiltar.tagName === "BUTTON"){
+        buttonPanificadora.addEventListener("click", () => {
 
-                const valuePanificadora = document.querySelector("#botao--panificadora").value
-                const mostrarPesquisa = db.foods.filter(function(produtos){
-
-                    return (
-                        produtos.categoria.toLowerCase() == valuePanificadora.toLowerCase()
-                    )
-
-                })
+                const produtosFiltrados = db.foods.filter((produto) => produto.categoria.toLowerCase() == buttonPanificadora.value.toLowerCase())
                 
-                Cards.criarCards(mostrarPesquisa)
+                Cards.criarCards(produtosFiltrados)
                 
-            }
         })
     }
 
-    // Filtro Frutas
     static filtroFrutas(){
 
         const buttonFrutas = document.querySelector("#botao--frutas")
         
-        buttonFrutas.addEventListener("click", e => {
-            
-            const botaoFiltar = e.target
-            if(botaoFiltar.tagName === "BUTTON"){
+        buttonFrutas.addEventListener("click", () => {
+ 
+                const produtosFiltrados = db.foods.filter((produto) => produto.categoria.toLowerCase() == buttonFrutas.value.toLowerCase())
 
-                const valueFrutas = document.querySelector("#botao--frutas").value
-                const mostrarPesquisa = db.foods.filter(function(produtos){
-
-                    return (
-                        produtos.categoria.toLowerCase() == valueFrutas.toLowerCase()
-                    )
-
-                })
+                Cards.criarCards(produtosFiltrados)
                 
-                Cards.criarCards(mostrarPesquisa)
-                
-            }
         })
+
     }
 
-    // Filtro Bebidas
     static filtroBebidas(){
 
         const buttonBebidas = document.querySelector("#botao--bebidas")
         
-        buttonBebidas.addEventListener("click", e => {
-            
-            const botaoFiltar = e.target
-            if(botaoFiltar.tagName === "BUTTON"){
+        buttonBebidas.addEventListener("click", () => {
 
-                const valueBebidas = document.querySelector("#botao--bebidas").value
-                const mostrarPesquisa = db.foods.filter(function(produtos){
+                const produtosFiltrados = db.foods.filter((produtos) => produtos.categoria.toLowerCase() == buttonBebidas.value.toLowerCase())
 
-                    return (
-                        produtos.categoria.toLowerCase() == valueBebidas.toLowerCase()
-                    )
+                Cards.criarCards(produtosFiltrados)
 
-                })
-                
-                Cards.criarCards(mostrarPesquisa)
-                
-            }
         })
+
     }
 
 }
 
-export{Filtros}
+export{ Filtros }

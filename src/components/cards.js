@@ -64,4 +64,4 @@ class Cards {
     }
 }
 
-export {Cards}
+export { Cards }
