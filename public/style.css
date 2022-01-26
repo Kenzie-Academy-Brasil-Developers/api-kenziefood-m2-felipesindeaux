@@ -29,6 +29,8 @@ body{
     display: flex;
     flex-direction: column;
     align-items: center;
+    max-width: 87vw;
+    margin: auto;
 }
 
 /*============Vitrine============*/
@@ -82,6 +84,7 @@ body{
     font-size: 11.5px;
     line-height: 17px;
     position: relative;
+    margin-left: 10px;
     top: 210px;
 }
 
@@ -185,14 +188,14 @@ p{
 }
 
 /*============Header============*/
-header{
+.linha__horizontal{
     width: 100%;
     margin-bottom: 15px;
 }
 .logo{
     width: 123px;
     height: 46px;
-    margin: 15px;
+    margin: 15px 15px 15px 20px;
     cursor: pointer;
 }
 .flex{
@@ -267,13 +270,14 @@ header{
 .carrinho__bottom{
     display: flex;
     flex-direction: column;
-    width: 100%;
-    height: 433px;
+    height: 400px;
     justify-content: center;
     align-items: center;
     text-align: center;
     background-color: var(--color-grey-1);
     color: var(--color-grey-3);
+    overflow-y: auto;
+    scrollbar-width: none;   
 }
 
 .carrinho__bottom h2{
@@ -359,11 +363,16 @@ header{
 @media (min-width: 768px) {
 
     header{
+        box-shadow: 0px 0px 40px -20px rgba(0, 0, 0, 0.25);
+    }
+
+    .linha__horizontal{
         display: flex;
         align-items: center;
         justify-content: space-between;
         margin-bottom: 40px;
-        box-shadow: 0px 0px 40px -20px rgba(0, 0, 0, 0.25);
+        max-width: 1000px;
+        margin: auto;
     }
     /*============Vitrine============*/
     .vitrine__botoes{
@@ -393,7 +402,15 @@ header{
 
 }
 
-@media (min-width: 1760px) {
+@media (min-width: 1455px) {
+
+    .linha__horizontal{
+        max-width: 1675px;
+    }
+
+    .vitrine{
+        max-width: 970px;
+    }
 
     .vitrine__botoes{
         justify-content: flex-start;
@@ -422,20 +439,16 @@ header{
 
   /*============Header============*/
     .logo{
-        margin: 15px 15px 15px 100px;
+        margin: 15px 15px 15px 130px;
     }
     .flex{
         margin: 15px 100px 15px 15px;
     }
-    .carrinho{
-        margin-left: 60px;
-    }
-    /* .carrinho__bottom{
-        width: 93%;
-    } */
+   
     #carrinho__cheio{
         padding: 0px 10px;
     }
+
     .carrinho__card{
         width: 100%;
     }
