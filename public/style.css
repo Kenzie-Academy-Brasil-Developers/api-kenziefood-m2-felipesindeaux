@@ -124,6 +124,10 @@ p{
     align-self: center;
 }
 
+.vitrine__flex__img{
+    cursor: pointer;
+}
+
 .vitrine__cards{
     height: 400px;
     display: flex;
