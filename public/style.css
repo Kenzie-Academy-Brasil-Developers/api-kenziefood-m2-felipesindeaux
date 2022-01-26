@@ -359,6 +359,29 @@ p{
     cursor: pointer;
 }
 
+.carrinho__footer{
+    display: flex;
+    flex-direction: column;
+    font-weight: 700;
+}
+
+.carrinho__footer div{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 60px;
+    width: 100%;
+}
+
+.carrinho__quantidade{
+    background-color: var(--color-grey-1);
+}
+
+.carrinho__footer span{
+    padding: 0px 20px 0px 20px;
+}
+
+
 
 @media (min-width: 768px) {
 
