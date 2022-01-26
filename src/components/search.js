@@ -3,7 +3,6 @@ import { db } from "./../mock/db.js"
 
 class Search{
 
-    // Barra de pesquisa
     static searchProduct(){
 
         const imgPesquisar = document.querySelector(".pesquisar figure img")
@@ -33,10 +32,9 @@ class Search{
             
         })
 
-        // Pesquisando a partir do enter
-        document.addEventListener("keypress", e => {
+        document.addEventListener("keypress", evt => {
 
-            if(e.key === "Enter"){
+            if(evt.key === "Enter"){
 
                 const inputPesquisar = document.querySelector(".pesquisar input").value
                 const mostrarPesquisa = db.foods.filter(function(produtos){
@@ -58,17 +56,14 @@ class Search{
 
     }
 
-    // Voltar para Home pelo logo
     static homeLogo(){
 
         const buttonLogo = document.querySelector(".logo img")
 
-        buttonLogo.addEventListener("click", e => {
+        buttonLogo.addEventListener("click", () => Cards.criarCards(db.foods))
 
-            Cards.criarCards(db.foods)
-
-        })
     }
+
 }
 
 export{ Search }
