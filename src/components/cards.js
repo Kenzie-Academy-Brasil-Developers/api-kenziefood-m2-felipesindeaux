@@ -25,6 +25,7 @@ class Cards {
             //Adicionando classes
             li.classList.add('vitrine__card')
             div.classList.add('vitrine__flex')
+            img.classList.add('vitrine__img')
             carrinhoImg.classList.add('vitrine__flex__img')
             divCategoria.classList.add('vitrine__categoria')
 

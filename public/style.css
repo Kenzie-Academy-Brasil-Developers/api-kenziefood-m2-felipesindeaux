@@ -144,7 +144,7 @@ p{
     max-width: 375px;
 }
 
-.vitrine__card img:first-child:hover{
+.vitrine__img:hover{
     border-radius: 5px;
     outline: solid var(--color-primary);
 }
