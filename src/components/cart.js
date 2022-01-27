@@ -4,39 +4,94 @@ class Cart{
 
     static adicionandoCart(idProduto){
         
-        const produtoFiltrado = db.foods.find(function(produto){
-            return produto.id == idProduto
-        })
+        const produtoClicado = db.foods.find(produto => produto.id == idProduto)
         
-        db.carrinho.push(produtoFiltrado)
+        db.carrinho.push(produtoClicado)
+        Cart.criarFooterCarrinho()
         Cart.atualizarCart(db.carrinho)
+        
 
     }
 
     static removendoCart(idProduto){
 
-        const produtoFiltrado = db.carrinho.find(function(produto, index){
-            return produto.id == idProduto
-        })
+        const produtoClicado = db.carrinho.find((produto) => produto.id == idProduto)
 
-        const index = db.carrinho.indexOf(produtoFiltrado)
+        const index = db.carrinho.indexOf(produtoClicado)
+
         db.carrinho.splice(index, 1)
         this.atualizarCart(db.carrinho)
+        
+        if (db.carrinho.length === 0){
+            document.querySelector('.carrinho__footer').innerHTML = ""
+        }
+    }
+    
+    static criarFooterCarrinho(){
+        const carrinhoFooter = document.querySelector('.carrinho__footer')
 
+        if (!document.querySelector(".carrinho__quantidadeTotal") ){
+            //Criando os elementos
+            const aside                     = document.querySelector(".carrinho")
+            const divQuantidade             = document.createElement('div')
+            const divTotal                  = document.createElement('div')
+            const spanQuantidadeTotal       = document.createElement('span')
+            const spanPrecoTotal            = document.createElement('span')
+            const spanQuantidade            = document.createElement('span')
+            const spanPreco                 = document.createElement('span')
 
+            //Adicionando classes
+            divQuantidade.classList.add('carrinho__quantidade')
+            divTotal.classList.add('carrinho__total')
+            spanQuantidadeTotal.classList.add('carrinho__quantidadeTotal')
+            spanPrecoTotal.classList.add('carrinho__PrecoTotal')
+            
+            //Adicionando conteúdo
+            spanQuantidade.innerText        = ('Quantidade')
+            spanPreco.innerText             = ('Total')
+
+            //Colocando dentro do html
+            aside.appendChild(carrinhoFooter)
+            divQuantidade.appendChild(spanQuantidade)
+            divTotal.appendChild(spanPreco)
+            divQuantidade.appendChild(spanQuantidadeTotal)
+            divTotal.appendChild(spanPrecoTotal)
+            carrinhoFooter.appendChild(divQuantidade)
+            carrinhoFooter.appendChild(divTotal)
+        }
+        
+    }
+
+    static atualizarQuantidade(){
+        document.querySelector('.carrinho__quantidadeTotal').innerText = db.carrinho.length
+    }
+
+    static atualizarTotal(produtos){
+        const spanPrecoTotal = document.querySelector('.carrinho__PrecoTotal')
+
+        const total = produtos.reduce((total, produto) => total + produto.preco, 0)
+
+        let valorTotal = total.toLocaleString('pt-BR', {
+            currency: 'BRL',
+            minimumFractionDigits: 2
+            });
+        
+        spanPrecoTotal.innerText = `R$ ${valorTotal}`
     }
 
     static atualizarCart(produtos){
-
         const carrinho     = document.querySelector(".carrinho__bottom")
         carrinho.innerHTML = ""
 
         if (produtos.length === 0){
 
             carrinho.removeAttribute('id')
+            carrinho.style.backgroundColor = 'var(--color-grey-1)';
             carrinho.innerHTML = "<img src='src/assets/images/shopping-bag.png' alt='Ícone de uma bolsa vazia'> <h2>Ops!</h2> <p>Por enquanto não temos produtos no carrinho</p>"
             
         } else {
+
+            carrinho.style.backgroundColor = 'white';
 
             produtos.forEach(produto => {
 
@@ -88,8 +143,9 @@ class Cart{
                 div.appendChild(spanPreco)
                 li.appendChild(lixoImg)
             })
-
-        }
+        } 
+        Cart.atualizarQuantidade()
+        Cart.atualizarTotal(db.carrinho)
     }
 }
 

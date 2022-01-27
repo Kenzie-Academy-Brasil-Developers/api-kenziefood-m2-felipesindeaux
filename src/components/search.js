@@ -7,11 +7,11 @@ class Search{
 
         const imgPesquisar = document.querySelector(".pesquisar figure img")
 
-        imgPesquisar.addEventListener('click', function(){
+        imgPesquisar.addEventListener('click', () => {
 
                 const inputPesquisar = document.querySelector(".pesquisar input").value.toLowerCase()
 
-                const produtosFiltrados = db.foods.filter((produto) => produto.categoria.toLowerCase() == inputPesquisar)
+                const produtosFiltrados = Search.filtrarAutomaticamente(inputPesquisar)
                 
                 if(inputPesquisar.length !== 0){
                     Cards.criarCards(produtosFiltrados)
@@ -35,7 +35,7 @@ class Search{
             if(evt.key === "Enter"){
 
                 const inputPesquisar = document.querySelector(".pesquisar input").value
-                const produtosFiltrados = db.foods.filter((produto) => produto.categoria.toLowerCase() == inputPesquisar.toLowerCase())
+                const produtosFiltrados = Search.filtrarAutomaticamente(inputPesquisar)
 
                 if(inputPesquisar.length !== 0){
                     Cards.criarCards(produtosFiltrados)
@@ -47,11 +47,10 @@ class Search{
 
         })
 
-        const teste = document.querySelector(".pesquisar input")
+        const input = document.querySelector(".pesquisar input")
 
-        teste.addEventListener("keyup", function(event) {
-            const busca = event.target.value
-            console.log(busca)
+        input.addEventListener("keyup", () => {
+            const busca = input.value
 
             const result = Search.filtrarAutomaticamente(busca)
 
@@ -60,12 +59,12 @@ class Search{
 
     }
 
-    static filtrarAutomaticamente(value){
+    static filtrarAutomaticamente(produtos){
 
-        value = value.toLowerCase()
+        produtos = produtos.toLowerCase()
 
         const produtosFiltrados = db.foods.filter(produto => {
-            if(produto.nome.toLowerCase().includes(value) || produto.categoria.toLowerCase().includes(value)){
+            if(produto.nome.toLowerCase().includes(produtos) || produto.categoria.toLowerCase().includes(produtos)){
                 return produto
             }
             
