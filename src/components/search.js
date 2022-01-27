@@ -77,7 +77,11 @@ class Search{
 
         const buttonLogo = document.querySelector(".logo img")
 
-        buttonLogo.addEventListener("click", () => Cards.criarCards(db.foods))
+        buttonLogo.addEventListener("click", () => {
+            
+            Cards.criarCards(db.foods)
+            document.querySelector(".pesquisar input").value = ""
+        })
 
     }
 
