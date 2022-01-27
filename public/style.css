@@ -103,7 +103,7 @@ body{
     padding: 15px;
     box-sizing: border-box;
     max-width: 100vw;
-    overflow-x: scroll;
+    overflow-x: auto;
     scrollbar-width: none;
 } 
 
@@ -460,5 +460,5 @@ p{
     .vitrine__cards{
         height: 1000px;
     }
-    
+
 }
