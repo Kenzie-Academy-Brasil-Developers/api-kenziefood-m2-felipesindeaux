@@ -249,6 +249,7 @@ p{
     flex-direction: column;
     width: 310px;
     margin-top: 15px;
+    margin-bottom: 10px;
 }
 
 .carrinho__top{
