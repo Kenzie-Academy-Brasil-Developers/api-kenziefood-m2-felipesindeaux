@@ -7,7 +7,7 @@ class Search{
 
         const imgPesquisar = document.querySelector(".pesquisar figure img")
 
-        imgPesquisar.addEventListener('click', function(){
+        imgPesquisar.addEventListener('click', () => {
 
                 const inputPesquisar = document.querySelector(".pesquisar input").value.toLowerCase()
 
@@ -49,8 +49,8 @@ class Search{
 
         const input = document.querySelector(".pesquisar input")
 
-        input.addEventListener("keyup", function(event) {
-            const busca = event.target.value
+        input.addEventListener("keyup", () => {
+            const busca = input.value
 
             const result = Search.filtrarAutomaticamente(busca)
 
@@ -59,12 +59,12 @@ class Search{
 
     }
 
-    static filtrarAutomaticamente(value){
+    static filtrarAutomaticamente(produtos){
 
-        value = value.toLowerCase()
+        produtos = produtos.toLowerCase()
 
         const produtosFiltrados = db.foods.filter(produto => {
-            if(produto.nome.toLowerCase().includes(value) || produto.categoria.toLowerCase().includes(value)){
+            if(produto.nome.toLowerCase().includes(produtos) || produto.categoria.toLowerCase().includes(produtos)){
                 return produto
             }
             

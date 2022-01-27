@@ -4,40 +4,35 @@ class Cart{
 
     static adicionandoCart(idProduto){
         
-        const produtoFiltrado = db.foods.find(function(produto){
-            return produto.id == idProduto
-        })
+        const produtoClicado = db.foods.find(produto => produto.id == idProduto)
         
-        db.carrinho.push(produtoFiltrado)
+        db.carrinho.push(produtoClicado)
+        Cart.criarFooterCarrinho()
         Cart.atualizarCart(db.carrinho)
-        Cart.criarQuantidadePreco()
-        Cart.atualizarQuantidade()
-        Cart.atualizarTotal(db.carrinho)
+        
+
     }
 
     static removendoCart(idProduto){
 
-        const produtoFiltrado = db.carrinho.find(function(produto, index){
-            return produto.id == idProduto
-        })
+        const produtoClicado = db.carrinho.find((produto) => produto.id == idProduto)
 
-        const index = db.carrinho.indexOf(produtoFiltrado)
+        const index = db.carrinho.indexOf(produtoClicado)
+
         db.carrinho.splice(index, 1)
         this.atualizarCart(db.carrinho)
-        Cart.atualizarQuantidade()
-        Cart.atualizarTotal(db.carrinho)
+        
         if (db.carrinho.length === 0){
-            Cart.removerFooterCarrinho()  
+            document.querySelector('.carrinho__footer').innerHTML = ""
         }
     }
     
-    static criarQuantidadePreco(){
+    static criarFooterCarrinho(){
         const carrinhoFooter = document.querySelector('.carrinho__footer')
 
         if (!document.querySelector(".carrinho__quantidadeTotal") ){
             //Criando os elementos
             const aside                     = document.querySelector(".carrinho")
-            // const carrinhoFooter            = document.createElement('div')
             const divQuantidade             = document.createElement('div')
             const divTotal                  = document.createElement('div')
             const spanQuantidadeTotal       = document.createElement('span')
@@ -46,7 +41,6 @@ class Cart{
             const spanPreco                 = document.createElement('span')
 
             //Adicionando classes
-            // carrinhoFooter.classList.add('carrinho__footer')
             divQuantidade.classList.add('carrinho__quantidade')
             divTotal.classList.add('carrinho__total')
             spanQuantidadeTotal.classList.add('carrinho__quantidadeTotal')
@@ -65,26 +59,19 @@ class Cart{
             carrinhoFooter.appendChild(divQuantidade)
             carrinhoFooter.appendChild(divTotal)
         }
+        
     }
 
     static atualizarQuantidade(){
-        const spanQuantidadeTotal = document.querySelector('.carrinho__quantidadeTotal')
-        spanQuantidadeTotal.innerText = db.carrinho.length        
-    }
-
-    static removerFooterCarrinho(){
-        const carrinhoFooter = document.querySelector('.carrinho__footer')
-        carrinhoFooter.innerHTML = ""
+        document.querySelector('.carrinho__quantidadeTotal').innerText = db.carrinho.length
     }
 
     static atualizarTotal(produtos){
         const spanPrecoTotal = document.querySelector('.carrinho__PrecoTotal')
 
-        const total = produtos.reduce(function(total, produto){
-            return total + produto.preco
-        },0)
+        const total = produtos.reduce((total, produto) => total + produto.preco, 0)
 
-        let valorTotal = parseFloat(total.toFixed(2)).toLocaleString('pt-BR', {
+        let valorTotal = total.toLocaleString('pt-BR', {
             currency: 'BRL',
             minimumFractionDigits: 2
             });
@@ -156,12 +143,9 @@ class Cart{
                 div.appendChild(spanPreco)
                 li.appendChild(lixoImg)
             })
-
-            if (db.carrinho.length === 0){
-                Cart.removerFooterCarrinho()  
-            }
-        }
-        
+        } 
+        Cart.atualizarQuantidade()
+        Cart.atualizarTotal(db.carrinho)
     }
 }
 
