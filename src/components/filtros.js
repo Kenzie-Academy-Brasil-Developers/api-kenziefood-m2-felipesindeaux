@@ -6,7 +6,12 @@ class Filtros {
     static filtroTodos(){
 
         const buttonTodos = document.querySelector("#botao--todos")
-        buttonTodos.addEventListener("click", () => Cards.criarCards(db.foods))
+        buttonTodos.addEventListener("click", () => {
+
+            Cards.criarCards(db.foods)
+            document.querySelector(".pesquisar input").value = ""
+
+        })
         
     }
 
@@ -18,7 +23,9 @@ class Filtros {
 
                 const produtosFiltrados = db.foods.filter((produto) => produto.categoria.toLowerCase() == buttonPanificadora.value.toLowerCase())
                 
+                
                 Cards.criarCards(produtosFiltrados)
+                document.querySelector(".pesquisar input").value = ""
                 
         })
     }
@@ -32,6 +39,7 @@ class Filtros {
                 const produtosFiltrados = db.foods.filter((produto) => produto.categoria.toLowerCase() == buttonFrutas.value.toLowerCase())
 
                 Cards.criarCards(produtosFiltrados)
+                document.querySelector(".pesquisar input").value = ""
                 
         })
 
@@ -46,6 +54,7 @@ class Filtros {
                 const produtosFiltrados = db.foods.filter((produtos) => produtos.categoria.toLowerCase() == buttonBebidas.value.toLowerCase())
 
                 Cards.criarCards(produtosFiltrados)
+                document.querySelector(".pesquisar input").value = ""
 
         })
 
