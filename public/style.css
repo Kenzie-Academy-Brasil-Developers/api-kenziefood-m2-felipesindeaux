@@ -383,6 +383,10 @@ p{
 
     /*============Vitrine============*/
 
+    .vitrine{
+        max-width: 670px;
+    }
+
     .vitrine__categoria{
         top: 210px;
     }
@@ -406,6 +410,12 @@ p{
         max-width: 300px;
     } 
 
+}
+
+@media (min-width: 1115px){
+    .vitrine{
+        max-width: 970px;
+    }
 }
 
 @media (min-width: 1455px) {
