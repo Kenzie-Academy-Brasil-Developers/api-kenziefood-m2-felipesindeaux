@@ -1,158 +1,80 @@
+<div align="center" id="top"> 
+  <img src="./src/assets/images/app.gif" alt="Api Kenziefood M2 Felipesindeaux" />
+
+  &#xa0;
+
+  <a href="https://kenzie-academy-brasil-developers.github.io/api-kenziefood-m2-felipesindeaux/">Site</a>
+</div>
+
+<h1 align="center">Api Kenziefood M2</h1>
+
+<p align="center">
+  <img alt="Github top language" src="https://img.shields.io/github/languages/top/Kenzie-Academy-Brasil-Developers/api-kenziefood-m2-felipesindeaux?color=56BEB8">
+
+  <img alt="Github language count" src="https://img.shields.io/github/languages/count/Kenzie-Academy-Brasil-Developers/api-kenziefood-m2-felipesindeaux?color=56BEB8">
+
+  <img alt="Repository size" src="https://img.shields.io/github/repo-size/Kenzie-Academy-Brasil-Developers/api-kenziefood-m2-felipesindeaux?color=56BEB8">
+
+  <img alt="License" src="https://img.shields.io/github/license/Kenzie-Academy-Brasil-Developers/api-kenziefood-m2-felipesindeaux?color=56BEB8">
+
+</p>
 
 
-# API-KenzieFood
+<p align="center">
+  <a href="#dart-about">About</a> &#xa0; | &#xa0; 
+  <a href="#rocket-language">Language</a> &#xa0; | &#xa0;
+  <a href="#white_check_mark-requirements">Requirements</a> &#xa0; | &#xa0;
+  <a href="#checkered_flag-starting">Starting</a> &#xa0; | &#xa0;
+  <a href="#memo-license">License</a> &#xa0; | &#xa0;
+  <a href="https://github.com/Kenzie-Academy-Brasil-Developers/api-kenziefood-m2-felipesindeaux/graphs/contributors" target="_blank">Author</a>
+</p>
 
-Nesse trabalho vocês terão que consumir uma API de produtos.
+<br>
 
-## Rotas
+## :dart: About ##
 
-### Get `/product`
+Projeto feito pela <a href="https://kenzie.com.br/" target="_blank">Kenzie Academy Brasil </a>que desenvolvemos um projeto de um ecomerce utilizando Html, Css, Javascript (POO e API). Agradecer ao nosso facilitador <a href="https://www.linkedin.com/in/jardel-lacerda/" target="_blank">Jardel</a> que ajudou a gente nessa etapa de nossas vidas.
 
-### Resposta: Status 200
+## :rocket: Language ##
 
-```json
+The following tools were used in this project:
 
-```
----
+- [Html](https://github.com/Kenzie-Academy-Brasil-Developers/api-kenziefood-m2-felipesindeaux)
+- [Css](https://github.com/Kenzie-Academy-Brasil-Developers/api-kenziefood-m2-felipesindeaux)
+- [Javascript](https://github.com/Kenzie-Academy-Brasil-Developers/api-kenziefood-m2-felipesindeaux)
 
-### Get `/product/:id`
+## :white_check_mark: Requirements ##
 
-### Regras:
-Passar id do produto específico na url.
+Before starting :checkered_flag:, you need to have [Git](https://git-scm.com) and [Node](https://nodejs.org/en/) installed.
 
+## :checkered_flag: Starting ##
 
-### Resposta: Status 200
+```bash
+# Clone this project
+$ git clone https://github.com/Kenzie-Academy-Brasil-Developers/api-kenziefood-m2-felipesindeaux
 
-```json
-{
-	"id": 5,
-	"nome": "Panqueca de banana com aveia",
-	"preco": 20,
-	"categoria": "Panificadora",
-	"imagem": "https://kenzie-academy-brasil.gitlab.io/fullstack/frontend/modulo2/sprint4/img/capstone-images/panqueca.png",
-	"createdAt": "2022-01-24T13:20:24.211Z",
-	"updatedAt": "2022-01-24T13:20:24.211Z"
-}
+# Access
+$ cd api-kenziefood-m2-felipesindeaux
 
-```
---- 
-## Rotas extras
-Em todas as rotas extras são autenticadas, por isso, é necessário enviar no header o token da sua respectiva equipe. Exemplo:
+# Install dependencies
+$ npm
 
-```javascript
-fetch("https:urlDaApi", { headers : {Authorization: "Bearer tokenDaSuaEquipe"}} )
-```
----
+# Run the project
+$ npm start
 
-### Get `/my/product`
-### Regras:
-Essa rota retorna todos os produtos que foram criados utilizando o token de sua equipe. Exemplo?
-
-### Resposta: Status 200
-```json
-[
-	{
-		"id": 3,
-		"nome": "Bolinho",
-		"preco": 5,
-		"categoria": "Doce",
-		"imagem": "https://picsum.photos/200/300",
-		"createdAt": "2022-01-24T14:29:37.680Z",
-		"updatedAt": "2022-01-24T14:29:37.680Z"
-	},
-	{
-		"id": 4,
-		"nome": "Temaki",
-		"preco": 5,
-		"categoria": "Comida Japonesa",
-		"imagem": "https://picsum.photos/200/300",
-		"createdAt": "2022-01-24T14:36:34.045Z",
-		"updatedAt": "2022-01-24T14:41:38.740Z"
-	}
-]
-```
----
-
-### Get `/my/product/:id`
-### Regras:
-Passar id do produto específico na url.
-### Resposta: Status 200
-```json
-{
-	"id": 3,
-	"nome": "Bolinho",
-	"preco": 5,
-	"categoria": "Doce",
-	"imagem": "https://picsum.photos/200/300",
-	"createdAt": "2022-01-24T14:29:37.680Z",
-	"updatedAt": "2022-01-24T14:29:37.680Z"
-}
-```
----
-
-### Post `/my/product`
-### Regras:
-- `nome` e `categoria`: precisam ser strings.
-- `preco`: deve ser um número positivo.
-- `imagem`: deve ser a url de alguma imagem.
-
-```json
-{
-	"nome": "Bolinho",
-	"preco": 5,
-	"categoria": "Doce",
-	"imagem": "https://picsum.photos/200/300"
-}
-```
-### Resposta: Status 201 Created
-```json
-{
-	"id": 4,
-	"user_id": 2,
-	"nome": "Bolinho",
-	"preco": 5,
-	"categoria": "Doce",
-	"imagem": "https://picsum.photos/200/300",
-	"ip_user": "143.208.126.11",
-	"updatedAt": "2022-01-24T14:36:34.045Z",
-	"createdAt": "2022-01-24T14:36:34.045Z"
-}
-```
----
-
-### Patch `/my/product/:id`
-### Regras:
-- `nome` e `categoria`: precisam ser strings.
-- `preco`: deve ser um número positivo.
-- `imagem`: deve ser a url de alguma imagem.
-- Passar id do produto específico na url.
-
-### Requisição:
-Enviar um JSON com pelo menos uma das informações do produto a ser alterada, exemplo:
-
-```json
-{
-	"nome" : "Temaki"
-}
+# The server will initialize in the <http://localhost:3000>
 ```
 
-### Resposta: Status 202 Accepted
-```json
-{
-	"id": 4,
-	"nome": "Temaki",
-	"preco": 5,
-	"categoria": "Doce",
-	"imagem": "https://picsum.photos/200/300",
-	"createdAt": "2022-01-24T13:51:16.525Z",
-	"updatedAt": "2022-01-24T14:30:20.104Z"
-}
-```
----
+## :memo: License ##
 
-### Delete `/my/product/:id`
-### Regras:
-Passar id do produto específico na url.
-Essa rota não precisa de um body, apenas do id na url.
-### Resposta: Status 204 No Content
+This project is under license from MIT. For more details, see the [LICENSE](LICENSE.md) file.
 
+
+Made with :heart: by 
+<a href="https://www.linkedin.com/in/carlos-vitor-ribeiro-cerqueira-lima-08aa78212/" target="_blank">Carlos Vitor, </a>
+<a href="https://www.linkedin.com/in/rodrigo-firmo/" target="_blank">Rodrigo Firmo, </a>
+<a href="https://www.linkedin.com/in/felipesindeaux/" target="_blank">Felipe Sindeaux.</a>
+
+&#xa0;
+
+<a href="#top">Back to top</a>
